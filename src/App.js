@@ -51,7 +51,7 @@ function DisplayListPanel() {
     <div>
       <ul>
         {listState.map((entityState, idx) => {
-          return <EntityViewer entityState={entityState} />;
+          return <EntityViewer key={idx} entityState={entityState} />;
         })}
       </ul>
     </div>
