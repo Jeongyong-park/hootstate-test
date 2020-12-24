@@ -76,7 +76,11 @@ function ControlListPanel() {
       dt
     };
     listState.set((nodes) => (nodes || []).concat([newItem]));
-    // listState.set(nodes => (nodes || []).push(newItem)); 안됨
+    // listState.set(nodes => {
+    //   const newNodes = [...nodes];
+    //   newNodes.push(newItem)
+    //   return newNodes;
+    // })// 안됨
   };
 
   return (
