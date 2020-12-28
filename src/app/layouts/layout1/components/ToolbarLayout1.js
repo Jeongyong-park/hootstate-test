@@ -9,14 +9,21 @@ import NavbarMobileToggleButton from '../../shared-components/NavbarMobileToggle
 import { jeju2Theme } from '../../../config/themeConfig';
 import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import QuickPanelToggleButton from '../../shared-components/quickPanel/QuickPanelToggleButton';
+import UserMenu from '../../shared-components/UserMenu';
 const useStyles = makeStyles(theme => ({
     root: {}
 }));
 
 function ToolbarLayout1(props) {
 
-    const toolbarTheme = jeju2Theme;
+    const config = {
+        navbar: {
+            display: true,
+            position: 'left'
+        }
+    };
 
+    const toolbarTheme = jeju2Theme;
     const classes = useStyles(props);
 
     return (
@@ -29,11 +36,11 @@ function ToolbarLayout1(props) {
                 elevation={2}
             >
                 <Toolbar className="p-0 min-h-48 md:min-h-64">
-                    {/* {config.navbar.display && config.navbar.position === 'left' && (
-                    <Hidden lgUp>
-                        <NavbarMobileToggleButton className="w-40 h-40 p-0 mx-0 sm:mx-8" />
-                    </Hidden>
-                )} */}
+                    {config.navbar.display && config.navbar.position === 'left' && (
+                        <Hidden lgUp>
+                            <NavbarMobileToggleButton className="w-40 h-40 p-0 mx-0 sm:mx-8" />
+                        </Hidden>
+                    )}
                     <Typography>테스트123123</Typography>
                     <div className="flex flex-1">
                         {/* <Hidden mdDown>
@@ -48,9 +55,9 @@ function ToolbarLayout1(props) {
 
                         {/*<FuseSearch />*/}
 
-                        {/* <QuickPanelToggleButton /> */}
+                        <QuickPanelToggleButton />
 
-                        {/* <UserMenu /> */}
+                        <UserMenu />
                     </div>
 
                     {/* {config.navbar.display && config.navbar.position === 'right' && (

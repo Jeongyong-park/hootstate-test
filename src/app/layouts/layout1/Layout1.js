@@ -14,10 +14,12 @@ import ToolbarLayout1 from './components/ToolbarLayout1';
 import FuseScrollbars from '../../../core/FuseScrollbars';
 import { makeStyles } from '@material-ui/core';
 
+
 function Layout1(props) {
     //const classes = LayoutStyle1();
     const classes = useStyles();
     const navbar = useState(navbarState);
+    
     const config = {
         mode: 'fullwidth',
         scroll: 'content',

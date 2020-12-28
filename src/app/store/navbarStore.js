@@ -1,4 +1,4 @@
-import { createState, useState } from "@hookstate/core";
+import { createState } from "@hookstate/core";
 
 export const navbarState = createState({
     display: true,
@@ -26,6 +26,12 @@ export const navbarOpenMobile = () => {
 export const navbarCloseMobile = () => {
     navbarState.set(e => ({ ...e, mobileOpen: false }));
 }
+
+export const navbarToggleMobile = () => {
+    navbarState.set(e => ({ ...e, mobileOpen: !e.mobileOpen }));
+}
+
 export const navbarToggleFolded = () => {
     navbarState.set(e => ({ ...e, folded: !e.folded }));
 }
+

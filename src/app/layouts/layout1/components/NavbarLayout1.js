@@ -38,7 +38,7 @@ function NavbarLayout1(props) {
             <div>
                 <UserNavbarHeader />
 
-                {/* <Navigation layout="vertical" /> */}
+                <Navigation layout="vertical" />
             </div>
             {/* </FuseScrollbars> */}
         </div>

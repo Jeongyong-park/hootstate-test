@@ -31,7 +31,18 @@ const jeju1Theme = createMuiTheme({
             'BlinkMacSystemFont',
             '"Apple SD Gothic Neo"',
             '"Malgun Gothic"'
-        ].join(',')
+        ].join(','),
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 600,
+
+        htmlFontSize: 10,
+        body1: {
+            fontSize: '1.4rem'
+        },
+        body2: {
+            fontSize: '1.4rem'
+        }
     }
 });
 
@@ -69,7 +80,18 @@ const jeju2Theme = createMuiTheme({
             'BlinkMacSystemFont',
             '"Apple SD Gothic Neo"',
             '"Malgun Gothic"'
-        ].join(',')
+        ].join(','),
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 600,
+
+        htmlFontSize: 10,
+        body1: {
+            fontSize: '1.4rem'
+        },
+        body2: {
+            fontSize: '1.4rem'
+        }
     }
 });
 

@@ -1,14 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List, makeStyles } from "@material-ui/core";
+import { Divider, List, makeStyles } from "@material-ui/core";
 import clsx from 'clsx';
+
+import InnoNavVerticalCollapse from './vertical/InnoNavVerticalCollapse';
+import InnoNavVerticalGroup from './vertical/InnoNavVerticalGroup';
+import InnoNavVerticalItem from './vertical/InnoNavVerticalItem';
+import InnoNavVerticalLink from './vertical/InnoNavVerticalLink';
+import InnoNavItem, { registerComponent } from './InnoNavItem';
+
+/*
+ * Register Fuse Navigation Components
+ */
+registerComponent('vertical-group', InnoNavVerticalGroup);
+registerComponent('vertical-collapse', InnoNavVerticalCollapse);
+registerComponent('vertical-item', InnoNavVerticalItem);
+registerComponent('vertical-link', InnoNavVerticalLink);
+registerComponent('vertical-divider', () => <Divider className="my-16" />);
+registerComponent('horizontal-divider', () => <Divider className="my-16" />);
+
 
 function InnoNavigation(props) {
     const classes = useStyles(props);
     const { navigation, layout, active, dense, className } = props;
 
-    const verticalNav = (
-        <List
+    const VerticalNav = () => {
+        debugger;
+        return <List
             className={clsx(
                 'navigation whitespace-no-wrap',
                 classes.navigation,
@@ -18,11 +36,11 @@ function InnoNavigation(props) {
                 className
             )}
         >
-            {/* {navigation.map(_item => (
-                <FuseNavItem key={_item.id} type={`vertical-${_item.type}`} item={_item} nestedLevel={0} />
-            ))} */}
+            {navigation.map(_item => (
+                <InnoNavItem key={_item.id} type={`vertical-${_item.type}`} item={_item} nestedLevel={0} />
+            ))}
         </List>
-    );
+    };
 
     const horizontalNav = (
         <List
@@ -35,26 +53,28 @@ function InnoNavigation(props) {
                 className
             )}
         >
-            {/* {navigation.map(_item => (
-                <FuseNavItem
+            {navigation.map(_item => {
+                debugger;
+                return <InnoNavItem
                     key={_item.id}
                     type={`horizontal-${_item.type}`}
                     item={_item}
                     nestedLevel={0}
                     dense={dense}
                 />
-            ))} */}
+            })}
         </List>
     );
 
     if (navigation.length > 0) {
+
         switch (layout) {
             case 'horizontal': {
                 return horizontalNav;
             }
             case 'vertical':
             default: {
-                return verticalNav;
+                return <VerticalNav />;
             }
         }
     } else {
