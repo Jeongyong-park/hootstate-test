@@ -1,28 +1,20 @@
-//import FuseSearch from '@fuse/core/FuseSearch';
-//import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import { Toolbar, Typography } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
-// import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
-//import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import clsx from 'clsx';
 import React from 'react';
 import NavbarMobileToggleButton from '../../shared-components/NavbarMobileToggleButton';
-// import { useSelector } from 'react-redux';
-// import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
-//import FullScreenToggle from '../../shared-components/FullScreenToggle';
-//import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
-import { jeju2Theme } from '../../../config/themeConfig';
 
+import { jeju2Theme } from '../../../config/themeConfig';
+import FullScreenToggle from '../../shared-components/FullScreenToggle';
+import QuickPanelToggleButton from '../../shared-components/quickPanel/QuickPanelToggleButton';
 const useStyles = makeStyles(theme => ({
     root: {}
 }));
 
 function ToolbarLayout1(props) {
-    //const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
+
     const toolbarTheme = jeju2Theme;
 
     const classes = useStyles(props);
@@ -42,17 +34,17 @@ function ToolbarLayout1(props) {
                         <NavbarMobileToggleButton className="w-40 h-40 p-0 mx-0 sm:mx-8" />
                     </Hidden>
                 )} */}
-                    <Typography>테스트</Typography>
+                    <Typography>테스트123123</Typography>
                     <div className="flex flex-1">
-                        <Hidden mdDown>
-                            {/* <FuseShortcuts className="px-16" /> */}
-                        </Hidden>
+                        {/* <Hidden mdDown>
+                            <FuseShortcuts className="px-16" />
+                        </Hidden> */}
                     </div>
 
                     <div className="flex items-center px-16">
                         {/*<LanguageSwitcher />*/}
 
-                        {/* <FullScreenToggle /> */}
+                        <FullScreenToggle />
 
                         {/*<FuseSearch />*/}
 

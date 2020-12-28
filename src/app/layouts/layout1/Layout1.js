@@ -25,12 +25,19 @@ function Layout1(props) {
             display: true
         },
         toolbar: {
+            display: true,
             style: 'fixed',
-            position: 'above'
+            position: 'below'
         },
         navbar: {
             display: true,
             position: 'left'
+        },
+        leftSidePanel: {
+            display: true
+        },
+        rightSidePanel: {
+            display: true
         }
     }
     return <div id="fuse-layout" className={clsx(classes.root, config.mode, `scroll-${config.scroll}`)}>
@@ -42,37 +49,37 @@ function Layout1(props) {
                 config.toolbar.position === 'above' && <ToolbarLayout1 />}
 
             {/* <FuseScrollbars className="overflow-auto" scrollToTopOnRouteChange> */}
-                {config.toolbar.display &&
-                    config.toolbar.style !== 'fixed' &&
-                    config.toolbar.position === 'above' && <ToolbarLayout1 />}
+            {config.toolbar.display &&
+                config.toolbar.style !== 'fixed' &&
+                config.toolbar.position === 'above' && <ToolbarLayout1 />}
 
-                <div className={classes.wrapper}>
-                    {config.navbar.display && config.navbar.position === 'left' && <NavbarWrapperLayout1 />}
+            <div className={classes.wrapper}>
+                {config.navbar.display && config.navbar.position === 'left' && <NavbarWrapperLayout1 />}
 
-                    <div className={classes.contentWrapper}>
-                        {config.toolbar.display && config.toolbar.position === 'below' && (
-                            <ToolbarLayout1 />
-                        )}
+                <div className={classes.contentWrapper}>
+                    {config.toolbar.display && config.toolbar.position === 'below' && (
+                        <ToolbarLayout1 />
+                    )}
 
-                        <div className={classes.content}>
-                            {/* <FuseDialog /> */}
+                    <div className={classes.content}>
+                        {/* <FuseDialog /> */}
 
-                            {/* <FuseSuspense>{renderRoutes(routes)}</FuseSuspense> */}
+                        {/* <FuseSuspense>{renderRoutes(routes)}</FuseSuspense> */}
 
-                            {props.children}
-                        </div>
-
-                        {/* {config.footer.display && config.footer.position === 'below' && <FooterLayout1 />} */}
-
-                        {/* <SettingsPanel /> */}
+                        {props.children}
                     </div>
 
-                    {config.navbar.display && config.navbar.position === 'right' && (
-                        <NavbarWrapperLayout1 />
-                    )}
+                    {/* {config.footer.display && config.footer.position === 'below' && <FooterLayout1 />} */}
+
+                    {/* <SettingsPanel /> */}
                 </div>
 
-                {/* {config.footer.display &&
+                {config.navbar.display && config.navbar.position === 'right' && (
+                    <NavbarWrapperLayout1 />
+                )}
+            </div>
+
+            {/* {config.footer.display &&
                     config.footer.style !== 'fixed' &&
                     config.footer.position === 'above' && <FooterLayout1 />} */}
             {/* </FuseScrollbars> */}

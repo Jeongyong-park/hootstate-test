@@ -7,22 +7,55 @@ import NavbarLayout1 from './NavbarLayout1';
 import { createState, useState } from '@hookstate/core';
 import clsx from 'clsx';
 import { navbarState, navbarOpenFold, navbarCloseFold, navbarCloseMobile } from '../../../store/navbarStore';
+import NavbarMobileToggleFab from '../../shared-components/NavbarMobileToggleFab';
 
 function NavbarWrapperLayout1(props) {
-    const classes = useStyles();
+    const config = {
+        mode: 'fullwidth',
+        scroll: 'content',
+        navbar: {
+            display: true,
+            folded: false,
+            position: 'left'
+        },
+        toolbar: {
+            display: true,
+            style: 'fixed',
+            position: 'below'
+        },
+        footer: {
+            display: false,
+            style: 'fixed',
+            position: 'below'
+        },
+        leftSidePanel: {
+            display: true
+        },
+        rightSidePanel: {
+            display: true
+        }
+    }
     const navbar = useState(navbarState)
+    const classes = useStyles();
     const navbarTheme = jeju2Theme;
     const [folded, setFolded] = React.useState(navbar.folded.get());
     const [foldedAndClosed, setFoldedAndClosed] = React.useState(folded && !navbar.folderOpen.get());
     const [foldedAndOpened, setFoldedAndOpend] = React.useState(folded && navbar.folderOpen.get());
 
     React.useEffect(() => {
-
-        console.log(`navbar.folderOpen: ${navbar.folderOpen.get()}`);
-        console.log(`navbar.mobileOpen: ${navbar.mobileOpen.get()}`);
-        setFolded(navbar.folded.get());
-        setFoldedAndClosed(navbar.folded.get() && !navbar.folderOpen.get());
-        setFoldedAndOpend(navbar.folded.get() && navbar.folderOpen.get());
+        console.group("navbar");
+        console.log(`folderOpen: ${navbar.folderOpen.get()}`);
+        console.log(`mobileOpen: ${navbar.mobileOpen.get()}`);
+        console.log(`folded: ${navbar.folded.get()}`);
+        console.groupEnd();
+        console.group("foldedAndOpen & Closed");
+        console.log(`foldedAndOpened: ${foldedAndOpened}`);
+        console.log(`foldedAndClosed: ${foldedAndClosed}`);
+        console.groupEnd();
+        const folded = navbar.folded.get();
+        setFolded(folded);
+        setFoldedAndClosed(folded && !navbar.folderOpen.get());
+        setFoldedAndOpend(folded && navbar.folderOpen.get());
     }, [navbar]);
 
     return (
@@ -34,7 +67,7 @@ function NavbarWrapperLayout1(props) {
                             className={clsx(
                                 classes.navbar,
                                 classes['left'],
-                                navbar.folderOpen.get() && classes.folded,
+                                navbar.folded.get() && classes.folded,
                                 foldedAndOpened && classes.foldedAndOpened,
                                 foldedAndClosed && classes.foldedAndClosed
                             )}
@@ -65,6 +98,13 @@ function NavbarWrapperLayout1(props) {
                     </Hidden>
                 </div>
             </ThemeProvider>
+
+            {config.navbar.display && !config.toolbar.display && (
+                <Hidden lgUp>
+                    <NavbarMobileToggleFab />
+                </Hidden>
+            )}
+
         </>);
 }
 

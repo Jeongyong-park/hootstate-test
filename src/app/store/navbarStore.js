@@ -27,5 +27,5 @@ export const navbarCloseMobile = () => {
     navbarState.set(e => ({ ...e, mobileOpen: false }));
 }
 export const navbarToggleFolded = () => {
-    navbarState.set(e => ({ ...e, folded: !e.foldeds }));
+    navbarState.set(e => ({ ...e, folded: !e.folded }));
 }
