@@ -25,7 +25,7 @@ function InnoNavigation(props) {
     const { navigation, layout, active, dense, className } = props;
 
     const VerticalNav = () => {
-        debugger;
+
         return <List
             className={clsx(
                 'navigation whitespace-no-wrap',
@@ -53,16 +53,14 @@ function InnoNavigation(props) {
                 className
             )}
         >
-            {navigation.map(_item => {
-                debugger;
-                return <InnoNavItem
-                    key={_item.id}
-                    type={`horizontal-${_item.type}`}
-                    item={_item}
-                    nestedLevel={0}
-                    dense={dense}
-                />
-            })}
+            {navigation.map(_item => (<InnoNavItem
+                key={_item.id}
+                type={`horizontal-${_item.type}`}
+                item={_item}
+                nestedLevel={0}
+                dense={dense}
+            />
+            ))}
         </List>
     );
 

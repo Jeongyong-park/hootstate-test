@@ -41,7 +41,6 @@ function ToolbarLayout1(props) {
                             <NavbarMobileToggleButton className="w-40 h-40 p-0 mx-0 sm:mx-8" />
                         </Hidden>
                     )}
-                    <Typography>테스트123123</Typography>
                     <div className="flex flex-1">
                         {/* <Hidden mdDown>
                             <FuseShortcuts className="px-16" />
