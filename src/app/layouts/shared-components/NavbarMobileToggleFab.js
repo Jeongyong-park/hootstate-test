@@ -1,11 +1,12 @@
+import { useState } from '@hookstate/core';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React from 'react';
-//import { useDispatch, useSelector } from 'react-redux';
-//import { navbarToggleMobile } from 'app/store/fuse/navbarSlice';
+import { navbarConfigState } from '../../store/configStore';
+import { navbarToggleMobile } from '../../store/navbarStore';
 
 const useStyles = makeStyles(theme => ({
 	buttonIcon: {
@@ -54,6 +55,9 @@ const useStyles = makeStyles(theme => ({
 
 function NavbarMobileToggleFab(props) {
 	const classes = useStyles(props);
+	const navbarConfig = useState(navbarConfigState);
+
+	const config = navbarConfig.get();
 	//const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
 
 	//const dispatch = useDispatch();
@@ -62,7 +66,7 @@ function NavbarMobileToggleFab(props) {
 		<Tooltip title="Show Navigation" placement={config.navbar.position === 'left' ? 'right' : 'left'}>
 			<Fab
 				className={clsx(classes.mobileButton, config.navbar.position, props.className)}
-				onClick={ev => dispatch(navbarToggleMobile())}
+				onClick={ev => navbarToggleMobile()}
 				disableRipple
 			>
 				<Icon className={classes.buttonIcon} color="action">
