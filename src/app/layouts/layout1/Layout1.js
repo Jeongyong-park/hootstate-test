@@ -1,47 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import NavbarWrapperLayout1 from './components/NavbarWrapperLayout1';
-import LayoutStyle1 from './LayoutStyle1';
 import { useState } from '@hookstate/core';
-import { navbarOpenFold, navbarCloseFold, navbarState } from '../../store/navbarStore';
 import ToolbarLayout1 from './components/ToolbarLayout1';
-import FuseScrollbars from '../../../core/FuseScrollbars';
 import { makeStyles } from '@material-ui/core';
+import { navbarConfigState } from '../../store/configStore';
 
 
 function Layout1(props) {
     //const classes = LayoutStyle1();
     const classes = useStyles();
-    const navbar = useState(navbarState);
-    
-    const config = {
-        mode: 'fullwidth',
-        scroll: 'content',
-        leftSidePanel: {
-            display: true
-        },
-        toolbar: {
-            display: true,
-            style: 'fixed',
-            position: 'below'
-        },
-        navbar: {
-            display: true,
-            position: 'left'
-        },
-        leftSidePanel: {
-            display: true
-        },
-        rightSidePanel: {
-            display: true
-        }
-    }
+    const navbarConfig = useState(navbarConfigState);
+
+    const config = navbarConfig.get();
+
     return <div id="fuse-layout" className={clsx(classes.root, config.mode, `scroll-${config.scroll}`)}>
         {/* {config.leftSidePanel.display && <LeftSideLayout1 />} */}
 

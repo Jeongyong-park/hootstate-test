@@ -1,8 +1,8 @@
-import _ from 'lodash';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import React from 'react';
-import { navbarToggleFolded } from '../../store/navbarStore';
+import { navbarToggleFolded } from '../../store/configStore';
+
 function NavbarFoldedToggleButton(props) {
 
     return (

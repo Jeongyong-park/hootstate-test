@@ -4,12 +4,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
-//import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+
 import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-//import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
+
 import InnoNavBadge from '../InnoNavBadge';
+import { navbarCloseMobile } from '../../../app/store/navbarStore';
 
 const useStyles = makeStyles(theme => ({
     item: props => ({
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function InnoNavVerticalLink(props) {
-    const dispatch = useDispatch();
+
     //const userRole = useSelector(({ auth }) => auth.user.role);
 
     const theme = useTheme();
@@ -64,7 +65,7 @@ function InnoNavVerticalLink(props) {
             href={item.url}
             target={item.target ? item.target : '_blank'}
             className={clsx(classes.item, 'list-item')}
-            onClick={ev => mdDown && dispatch(navbarCloseMobile())}
+            onClick={ev => mdDown && navbarCloseMobile()}
             role="button"
         >
             {item.icon && (

@@ -19,7 +19,7 @@ function NavbarLayout1(props) {
                 elevation={0}
                 className="flex flex-row items-center flex-shrink h-48 md:h-64 min-h-48 md:min-h-64 px-12"
             >
-                <div className="flex flex-1 mx-8">
+                <div className="flex flex-1 mx-8" style={{ minWidth: 33 }}>
                     <Logo />
                 </div>
 

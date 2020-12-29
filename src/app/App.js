@@ -5,7 +5,8 @@ import { createBrowserHistory } from "history";
 import Projects from './main/project/list/Project';
 import { jeju1Theme } from './config/themeConfig';
 import { MuiThemeProvider } from '@material-ui/core';
-import ConfigInit from './config/ConfigInit';
+import ConfigInit from './config/_configuration';
+import Layout1 from './layouts/layout1/Layout1';
 
 const history = createBrowserHistory();
 
@@ -19,7 +20,9 @@ const App = () => {
         <MuiThemeProvider theme={jeju1Theme}>
             <ConfigInit />
             <Router history={history}>
-                <Route exact path="/" component={Projects} />
+                <Layout1>
+                    <Route exact path="/" component={Projects} />
+                </Layout1>
             </Router>
         </MuiThemeProvider>
     </AppContext.Provider>);
