@@ -23,7 +23,8 @@ const App = () => {
             <Router history={history}>
                 <SnackbarProvider maxSnack={3}>
                     <Layout1>
-                        <Route exact path="/" component={Projects} />
+                        <Route exact path="/app/project/list" component={Projects} />
+
                     </Layout1>
                 </SnackbarProvider>
             </Router>
