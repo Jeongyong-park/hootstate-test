@@ -245,7 +245,7 @@ video {
 }
 
 .relative {
-    position: relative;
+    position: relative !important;
 }
 
 .h-40 {
@@ -296,6 +296,10 @@ video {
 .p-0 {
     padding: 0 !important;
 }
+.px-8 {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
 .px-12 {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
@@ -303,6 +307,10 @@ video {
 .px-16 {
     padding-left: 1.6rem;
     padding-right: 1.6rem;
+}
+.py-4 {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
 }
 .pb-32 {
     padding-bottom: 3.2rem;
@@ -314,15 +322,21 @@ video {
 .w-40 {
     width: 4rem;
 }
+.w-full {
+    width: 100%;
+}
+.max-w-512 {
+    max-width: 51.2rem;
+}
 .text-16 {
     font-size: 1.6rem !important;
 }
 
 .font-light {
-    font-weight: 300!important;
+    font-weight: 300 !important;
 }
 .font-bold {
-    font-weight: 700!important;
+    font-weight: 700 !important;
 }
 
 .z-0 {

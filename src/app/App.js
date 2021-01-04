@@ -7,6 +7,7 @@ import { jeju1Theme } from './config/themeConfig';
 import { MuiThemeProvider } from '@material-ui/core';
 import ConfigInit from './config/_configuration';
 import Layout1 from './layouts/layout1/Layout1';
+import { SnackbarProvider } from 'notistack';
 
 const history = createBrowserHistory();
 
@@ -20,9 +21,11 @@ const App = () => {
         <MuiThemeProvider theme={jeju1Theme}>
             <ConfigInit />
             <Router history={history}>
-                <Layout1>
-                    <Route exact path="/" component={Projects} />
-                </Layout1>
+                <SnackbarProvider maxSnack={3}>
+                    <Layout1>
+                        <Route exact path="/" component={Projects} />
+                    </Layout1>
+                </SnackbarProvider>
             </Router>
         </MuiThemeProvider>
     </AppContext.Provider>);
